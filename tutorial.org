@@ -62,3 +62,15 @@ but runs slower. Can anyone say, fast feedback loop?
 Note: This project will not contain source code, but rather thoughts and snippets
 to record as I go along the tutorial. There will be headers to correspond to the
 [[https://doc.rust-lang.org/book/second-edition/ch02-00-guessing-game-tutorial.html][Second Edition Rust Tutorial Ebook]].
+
+~use std::io;~ Will bring in the std Input/Output library for Rust.
+
+Rust variables are immutable by default.
+#+BEGIN_SRC rust
+let foo = 5; // immutable
+let mut foo = 5; // mutable
+#+END_SRC
+
+~::~ For a type (or class) means that the following function is an Association Function
+otherwise known as a static function. A Function not declared on the instance, but rather
+the class.
