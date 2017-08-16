@@ -22,3 +22,43 @@ Make sure that it's installed
 cargo --version
 #+END_SRC
 If it's not, then look at the ~README~ for the project again.
+
+Now we're cooking. This is how you can create a new project
+#+BEGIN_SRC bash
+cargo new hello_cargo --bin
+#+END_SRC
+The ~--bin~ says this project makes an executable, not a library.
+
+There is a file called ~Cargo.toml~. This is the Gemfile or package.json of the project.
+
+~cargo build~ in a directory with a Cargo project will build out and throw the executable in ~target~
+It is runnable with
+#+BEGIN_SRC bash
+./target/debug/hello_cargo
+#+END_SRC
+If you run the above new project command.
+
+Or to make it easier with Cargo, run
+#+BEGIN_SRC bash
+cargo run
+#+END_SRC
+To build and run the ~main~ executable
+
+emacs note:
+~cargo-process-run-bin~ will build and run the executable you give it
+~cargo-process-run~ will run the default ~cargo run~ behavior
+
+Release the hounds! If you haven't noticed, up to now Cargo has been saying that it is
+building with debug and no optimizations. That's awesome for our dev work, not so much
+for releasing our super cool projects.
+#+BEGIN_SRC bash
+cargo build --release
+#+END_SRC
+This will compile without debug and with all the optimizations it can. The executable
+will be in ~target/release~ instead of ~target/debug~. The released version will take
+longer to compile but runs really quickly. The Debug version, conversely, compiles fast
+but runs slower. Can anyone say, fast feedback loop?
+* Guessing Game Tutorial
+Note: This project will not contain source code, but rather thoughts and snippets
+to record as I go along the tutorial. There will be headers to correspond to the
+[[https://doc.rust-lang.org/book/second-edition/ch02-00-guessing-game-tutorial.html][Second Edition Rust Tutorial Ebook]].
