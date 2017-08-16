@@ -16,3 +16,9 @@ This will generate ~main~ and running
 Should output ~Hello, world!~
 
 Welcome to Rust!
+* Cargo
+Make sure that it's installed
+#+BEGIN_SRC bash
+cargo --version
+#+END_SRC
+If it's not, then look at the ~README~ for the project again.
