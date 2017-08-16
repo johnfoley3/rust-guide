@@ -1,0 +1,17 @@
+* Rust's Hello World
+Create a main.rs file in a ~hello_world~ directory.
+#+BEGIN_SRC rust
+fn main() {
+    println!("Hello, world!");
+}
+#+END_SRC
+#+BEGIN_SRC bash
+rustc main.rs
+#+END_SRC
+This will generate ~main~ and running
+#+BEGIN_SRC bash
+./main
+#+END_SRC
+Should output ~Hello, world!~
+
+Welcome to Rust!
