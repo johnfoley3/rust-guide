@@ -1,10 +1,11 @@
 * Rust's Hello World
-Create a main.rs file in a ~hello_world~ directory.
+Create a ~main.rs~ file in a ~hello_world~ directory. Throw this in it
 #+BEGIN_SRC rust
 fn main() {
     println!("Hello, world!");
 }
 #+END_SRC
+Then run
 #+BEGIN_SRC bash
 rustc main.rs
 #+END_SRC
@@ -15,3 +16,69 @@ This will generate ~main~ and running
 Should output ~Hello, world!~
 
 Welcome to Rust!
+* Cargo
+Make sure that it's installed
+#+BEGIN_SRC bash
+cargo --version
+#+END_SRC
+If it's not, then look at the ~README~ for the project again.
+
+Now we're cooking. This is how you can create a new project
+#+BEGIN_SRC bash
+cargo new hello_cargo --bin
+#+END_SRC
+The ~--bin~ says this project makes an executable, not a library.
+
+There is a file called ~Cargo.toml~. This is the Gemfile or package.json of the project.
+
+~cargo build~ in a directory with a Cargo project will build out and throw the executable in ~target~
+It is runnable with
+#+BEGIN_SRC bash
+./target/debug/hello_cargo
+#+END_SRC
+If you run the above new project command.
+
+Or to make it easier with Cargo, run
+#+BEGIN_SRC bash
+cargo run
+#+END_SRC
+To build and run the ~main~ executable
+
+emacs note:
+~cargo-process-run-bin~ will build and run the executable you give it
+~cargo-process-run~ will run the default ~cargo run~ behavior
+
+Release the hounds! If you haven't noticed, up to now Cargo has been saying that it is
+building with debug and no optimizations. That's awesome for our dev work, not so much
+for releasing our super cool projects.
+#+BEGIN_SRC bash
+cargo build --release
+#+END_SRC
+This will compile without debug and with all the optimizations it can. The executable
+will be in ~target/release~ instead of ~target/debug~. The released version will take
+longer to compile but runs really quickly. The Debug version, conversely, compiles fast
+but runs slower. Can anyone say, fast feedback loop?
+* Guessing Game Tutorial
+Note: This project will not contain source code, but rather thoughts and snippets
+to record as I go along the tutorial. There will be headers to correspond to the
+[[https://doc.rust-lang.org/book/second-edition/ch02-00-guessing-game-tutorial.html][Second Edition Rust Tutorial Ebook]].
+
+~use std::io;~ Will bring in the std Input/Output library for Rust.
+
+Rust variables are immutable by default.
+#+BEGIN_SRC rust
+let foo = 5; // immutable
+let mut foo = 5; // mutable
+#+END_SRC
+
+~::~ For a type (or class) means that the following function is an Association Function
+otherwise known as a static function. A Function not declared on the instance, but rather
+the class.
+
+Enumerations is a Type of data in Rust that are a known set of possible things. Each thing is
+called a variant. ~io::Result~ is a Enumeration, with variants ~Ok~ and ~Err~
+~Ok~ means the operation was successful, and contains the value
+~Err~ indicates that the operation was not successful, and contains the error message
+
+~cargo doc --open~ will build documentation for all of the local crates and open them in a
+web browser for you to peruse.
