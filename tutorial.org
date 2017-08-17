@@ -74,3 +74,11 @@ let mut foo = 5; // mutable
 ~::~ For a type (or class) means that the following function is an Association Function
 otherwise known as a static function. A Function not declared on the instance, but rather
 the class.
+
+Enumerations is a Type of data in Rust that are a known set of possible things. Each thing is
+called a variant. ~io::Result~ is a Enumeration, with variants ~Ok~ and ~Err~
+~Ok~ means the operation was successful, and contains the value
+~Err~ indicates that the operation was not successful, and contains the error message
+
+~cargo doc --open~ will build documentation for all of the local crates and open them in a
+web browser for you to peruse.
