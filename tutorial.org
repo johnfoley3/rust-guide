@@ -16,6 +16,21 @@ This will generate ~main~ and running
 Should output ~Hello, world!~
 
 Welcome to Rust!
+* Testing Utils
+** Integration Tests
+*** CLI
+[[https://mattgathu.github.io/testing-rust-cli-apps/][This blog post]] explains that it's possible to use [[https://doc.rust-lang.org/std/process/struct.Command.html][Rust's built in Command library]] to test CLI programs
+but that this can change across platforms and can be a lot of work to maintain, plus it's kind of tedious.
+[[https://github.com/killercup/assert_cli][A create called assert_cli]] has come to the rescue to abstract that away and make it all nice to test.
+
+#+NAME: assert_cli trivial example
+#+BEGIN_SRC rust
+extern crate assert_cli;
+
+fn main() {
+    assert_cli::Assert::command(&["echo", "42"]).stdout().contains("42").unwrap();
+}
+#+END_SRC
 * Cargo
 Make sure that it's installed
 #+BEGIN_SRC bash
